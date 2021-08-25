@@ -9,11 +9,12 @@ fetch("./actors.json")
 // Function for handling the json file - it goes trough the array, one object by one and doing the function for every object
 function handleActorList(data) {
   data.forEach(showActor);
+  popup();
 }
 
 function showActor(actor) {
   //Grab the template
-  const template = document.querySelector("#template").content;
+  const template = document.querySelector(".template").content;
   //Clone the template
   const templateCopy = template.cloneNode(true);
   //Modify the content
@@ -23,4 +24,18 @@ function showActor(actor) {
   const parent = document.querySelector("main");
   //Append child
   parent.appendChild(templateCopy);
+}
+
+function popup() {
+  const whiteBox = document.querySelectorAll(".whiteBox");
+  console.log(whiteBox);
+  whiteBox.forEach((box) => {
+    box.addEventListener("mouseenter", hoverState);
+    box.addEventListener("mouseleave", hoverState);
+  });
+
+  function hoverState() {
+    console.log("i am working");
+    this.classList.toggle("bigger");
+  }
 }
