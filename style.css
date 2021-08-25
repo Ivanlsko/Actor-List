@@ -14,6 +14,9 @@ main {
   width: 80%;
 }
 
+h1 {
+  padding: 30px;
+}
 h2 {
   font-size: 20px;
   font-weight: 500;
@@ -32,6 +35,7 @@ h3 {
   box-shadow: rgba(0, 0, 0, 0.1) 2px 4px 11px 0px;
   border-left: 2px solid blue;
   padding-left: 20px;
+  cursor: pointer;
 }
 
 .bigger {

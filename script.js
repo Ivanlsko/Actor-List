@@ -10,6 +10,7 @@ fetch("./actors.json")
 function handleActorList(data) {
   data.forEach(showActor);
   popup();
+  colors();
 }
 
 function showActor(actor) {
@@ -38,4 +39,31 @@ function popup() {
     console.log("i am working");
     this.classList.toggle("bigger");
   }
+}
+
+function colors() {
+  const x = document.querySelectorAll(".theFilm");
+  console.log(x);
+  const y = x.forEach((z) => {
+    console.log(z.innerHTML);
+    const parent = z.parentElement;
+
+    if (z.innerHTML == "Pulp Fiction") {
+      console.log("This is Pulp Ficiton");
+      console.log(parent);
+      parent.style.borderLeft = "2px solid red";
+    }
+
+    if (z.innerHTML == "Goodfellas") {
+      console.log("This is Goodfellas");
+      console.log(parent);
+      parent.style.borderLeft = "2px solid black";
+    }
+
+    if (z.innerHTML == "Inception") {
+      console.log("This is Goodfellas");
+      console.log(parent);
+      parent.style.borderLeft = "2px solid yellow";
+    }
+  });
 }
