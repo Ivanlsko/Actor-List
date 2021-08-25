@@ -1,3 +1,5 @@
+let clicked = false;
+
 //Fetch the Json File
 fetch("./actors.json")
   .then((response) => {
@@ -11,8 +13,8 @@ function handleActorList(data) {
   data.forEach(showActor);
   popup();
   colors();
+  data.forEach(info);
 }
-
 function showActor(actor) {
   //Grab the template
   const template = document.querySelector(".template").content;
@@ -21,6 +23,7 @@ function showActor(actor) {
   //Modify the content
   templateCopy.querySelector(".actorName").textContent = `${actor.fullname}`;
   templateCopy.querySelector(".theFilm").textContent = `${actor.movie}`;
+
   //Grab parent
   const parent = document.querySelector("main");
   //Append child
@@ -37,6 +40,10 @@ function popup() {
 
   function hoverState() {
     console.log("i am working");
+    if (clicked == true) {
+      this.classList.remove("bigger");
+      clicked = false;
+    }
     this.classList.toggle("bigger");
   }
 }
@@ -66,4 +73,21 @@ function colors() {
       parent.style.borderLeft = "2px solid yellow";
     }
   });
+}
+
+function info() {
+  console.log("info function works");
+  const whiteBox = document.querySelectorAll(".whiteBox");
+  whiteBox.forEach((thebox) => {
+    thebox.addEventListener("click", showInfo);
+  });
+}
+
+function showInfo(data) {
+  clicked = true;
+  console.log(clicked);
+  console.log("the item was clicked");
+  console.log(this);
+  console.log(this.innerHTML);
+  this.innerHTML = "this is a place for description";
 }
