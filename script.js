@@ -75,11 +75,12 @@ function colors() {
   });
 }
 
-function info() {
+function info(data) {
   console.log("info function works");
   const whiteBox = document.querySelectorAll(".whiteBox");
   whiteBox.forEach((thebox) => {
     thebox.addEventListener("click", showInfo);
+    return data;
   });
 }
 
@@ -89,5 +90,5 @@ function showInfo(data) {
   console.log("the item was clicked");
   console.log(this);
   console.log(this.innerHTML);
-  this.innerHTML = "this is a place for description";
+  this.innerHTML = data.description;
 }
